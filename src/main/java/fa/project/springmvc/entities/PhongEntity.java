@@ -23,6 +23,17 @@ public class PhongEntity {
 	@OneToMany(mappedBy = "Ghe")
 	private Set<GheEntity> Ghe;
 
+	public List<LichChieuEntity> getLichChieu() {
+		return LichChieu;
+	}
+
+	public void setLichChieu(List<LichChieuEntity> lichChieu) {
+		LichChieu = lichChieu;
+	}
+
+	@OneToMany(mappedBy = "LichChieu")
+	private List<LichChieuEntity> LichChieu;
+
 	public int getId() {
 		return id;
 	}
