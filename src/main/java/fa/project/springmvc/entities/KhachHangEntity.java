@@ -4,8 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import javax.persistence.CascadeType;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -16,6 +19,7 @@ public class KhachHangEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private int id;
 	
 	private String ho_va_ten;
@@ -26,6 +30,10 @@ public class KhachHangEntity {
 	private LocalDate createAt;
 	
 	private String so_dien_thoai;
+	
+	
+	@OneToOne(mappedBy = "khachHang", cascade = CascadeType.ALL)
+	private TaiKhoanEntity taiKhoan;
 	
 	public int getId() {
 		return id;
