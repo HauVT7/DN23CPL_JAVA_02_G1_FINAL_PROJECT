@@ -1,6 +1,8 @@
 package fa.project.springmvc.entities;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "dbo.PHONGS")
@@ -18,8 +20,8 @@ public class PhongEntity {
 	
 	private String hangngang;
 
-	@OneToMany
-
+	@OneToMany(mappedBy = "Ghe")
+	private Set<GheEntity> Ghe;
 
 	public int getId() {
 		return id;
