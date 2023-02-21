@@ -18,14 +18,6 @@ public class GheEntity {
 	
 	private int id_phong;
 
-	public PhongEntity getPhong() {
-		return Phong;
-	}
-
-	public void setPhong(PhongEntity phong) {
-		Phong = phong;
-	}
-
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "Phong_id")
 	private PhongEntity Phong;
