@@ -1,10 +1,6 @@
 package fa.project.springmvc.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "dbo.LICH_CHIEUS")
@@ -25,6 +21,10 @@ public class LichChieuEntity {
 	private String thoi_gian_bat_dau;
 	
 	private String thoi_gian_ket_thuc;
+
+	@ManyToOne
+	@JoinColumn(name = "Phong_id")
+	private PhongEntity Phong;
 
 	public int getId() {
 		return id;
