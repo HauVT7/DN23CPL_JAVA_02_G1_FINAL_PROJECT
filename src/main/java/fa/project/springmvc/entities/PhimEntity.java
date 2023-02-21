@@ -1,12 +1,9 @@
 package fa.project.springmvc.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -36,6 +33,18 @@ public class PhimEntity {
 	private LocalDate ngay_khoi_chieu;
 	
 	private boolean tinh_trang;
+
+	public List<LichChieuEntity> getLichChieu() {
+		return LichChieu;
+	}
+
+	public void setLichChieu(List<LichChieuEntity> lichChieu) {
+		LichChieu = lichChieu;
+	}
+
+	@OneToMany(mappedBy = "LichChieu_id_phim")
+	private List<LichChieuEntity> LichChieu;
+
 
 	public int getId() {
 		return id;

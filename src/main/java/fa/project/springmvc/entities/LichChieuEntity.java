@@ -26,6 +26,26 @@ public class LichChieuEntity {
 	@JoinColumn(name = "Phong_id")
 	private PhongEntity Phong;
 
+	public PhongEntity getPhong() {
+		return Phong;
+	}
+
+	public void setPhong(PhongEntity phong) {
+		Phong = phong;
+	}
+
+	public PhimEntity getPhim() {
+		return Phim;
+	}
+
+	public void setPhim(PhimEntity phim) {
+		Phim = phim;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "Phim_id")
+	private PhimEntity Phim;
+
 	public int getId() {
 		return id;
 	}
