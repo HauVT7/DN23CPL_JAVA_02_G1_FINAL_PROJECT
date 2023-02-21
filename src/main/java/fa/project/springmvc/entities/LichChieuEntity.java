@@ -1,6 +1,7 @@
 package fa.project.springmvc.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "dbo.LICH_CHIEUS")
@@ -25,6 +26,9 @@ public class LichChieuEntity {
 	@ManyToOne
 	@JoinColumn(name = "Phong_id")
 	private PhongEntity Phong;
+
+	@OneToMany(mappedBy = "GheBan_id")
+	private Set<GheBanEntity> GheBan;
 
 	public PhongEntity getPhong() {
 		return Phong;

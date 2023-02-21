@@ -1,13 +1,8 @@
 package fa.project.springmvc.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
-import javax.persistence.CascadeType;
+import java.util.Set;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -34,6 +29,9 @@ public class KhachHangEntity {
 	
 	@OneToOne(mappedBy = "khachHang", cascade = CascadeType.ALL)
 	private TaiKhoanEntity taiKhoan;
+
+	@OneToMany(mappedBy = "GheBan_id")
+	private Set<GheBanEntity> GheBan;
 	
 	public int getId() {
 		return id;
